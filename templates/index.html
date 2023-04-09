@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+{% autoescape false %}
+<!DOCTYPE html>
+	<style>
+	img {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	</style>
+    <h1>{% block title %} Master de Ciberseguridad {% endblock %}</h1>
+    <h2>TFM Métodos de Evasión de Web Application Firewalls (WAF) en Aplicaciones Web Modernas</h2>
+	<img src="../static/css/mastertfm.png" alt="tfmGC" style="width:17%;">
+    {% for post in posts %}
+	<a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+    {% endfor %}
+{% endautoescape %}
+{% endblock %}

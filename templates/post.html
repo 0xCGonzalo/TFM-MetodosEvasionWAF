@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% autoescape false %}
+    <i> Para Editar o Borrar este post, dirijase hacia <a href="http://159.223.169.119:1337/{{ post['id'] }}/edit">aqui.</a></i>
+    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <span class="badge badge-primary">{{ post['created'] }}</span>
+    <p>{{ post['content'] }}</p>
+{% endautoescape %}
+{% endblock %}
